@@ -22,5 +22,6 @@ Choose which accelerator to use:
     plaidml-setup 
 
 # Cargo
-Add the following to cargo.toml
-plaidml = { git = "https://github.com/charles-r-earp/plaidml-rs" }
+Add the following to cargo.toml:
+
+    plaidml = { git = "https://github.com/charles-r-earp/plaidml-rs" }
