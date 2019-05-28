@@ -1,0 +1,22 @@
+---
+cache: cargo
+dist: xenial
+env: 
+  global: 
+    - CRATE_NAME=plaidml
+install: 
+  - "sudo apt install -y python3-pip"
+  - "sudo pip3 install -y virtualenv"
+  - "virtualenv plaidml"
+  - "source plaidml/bin/activate"
+  - "pip install plaidml"
+  - "source ~/.cargo/env || true"
+language: rust
+env: TARGET=x86_64-unknown-linux-gnu
+notifications: 
+  email: 
+    on_success: never
+script:
+  - "cargo build"
+  - "cargo test"
+sudo: required

@@ -1,0 +1,15 @@
+[package]
+name = "ngraph"
+version = "0.0.1"
+authors = ["Charles Earp <charles.r.earp@gmail.com>"]
+edition = "2018"
+description = "Rust bindings for PlaidML https://github.com/plaidml/plaidml"
+license = "MIT"
+repository = "https://github.com/charles-r-earp/plaidml-rs"
+keywords = ["Auto", "Learning", "Tensor", "Grad", "Graph"]
+
+[dependencies]
+cpp = "0.5.1"
+
+[build-dependencies]
+cpp_build = "0.5.1"
