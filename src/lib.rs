@@ -7,6 +7,11 @@ cpp!{{
   using namespace vertexai::plaidml;
 }}
 
+pub unsafe trait Data {
+  // plaidml_datatype
+  fn data() -> usize;
+} 
+
 cpp_class!(unsafe struct Ctx as "std::shared_ptr<ctx>");
 
 impl  Ctx {
@@ -20,15 +25,26 @@ impl  Ctx {
 
 cpp_class!(unsafe struct BaseShape as "base_shape");
 
+impl BaseShape {
+  fn new<'c>(ctx: &'c Ctx, dt: usize) -> Self {
+    cpp!(unsafe [ctx as "std::shared_ptr<ctx>*", dt as "std::size_t"] -> BaseShape as "base_shape" {
+      return base_shape(*ctx, static_cast<plaidml_datatype>(dt));
+    })
+  }
+}
+
 pub struct Shape<T> {
   base_shape: BaseShape,
   _marker: PhantomData<T>
 }
 
-/*impl<T> Shape<T> {
-  fn new<D>(dims: D) -> Self
-    where D: AsRef<[usize]> {
-    cpp!(unsafe [*/
+impl<T> Shape<T> {
+  fn new<'c, D>(ctx: &'c Ctx) -> Self
+    where T: Data {
+    Self{base_shape: BaseShape::new(ctx, T::data()),
+         _marker: PhantomData::default()}
+  }
+}
 
 cpp_class!(unsafe struct BaseTensor as "std::unique_ptr<base_tensor>");
 
