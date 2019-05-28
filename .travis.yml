@@ -20,5 +20,5 @@ notifications:
   email: 
     on_success: never
 script:
-  - cargo run --examples test
+  - cargo run --example test
 sudo: required
