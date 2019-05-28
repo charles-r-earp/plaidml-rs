@@ -18,8 +18,11 @@ Install PlaidML via pip in a virtualenv called plaidml
 
 # Setup
 Choose which accelerator to use:
+
     plaidml-setup 
 
 # Cargo
-Add the following to cargo.toml
-plaidml = { git = "https://github.com/charles-r-earp/plaidml-rs" }
+Add the following to cargo.toml:
+
+    [dependencies]
+    plaidml = { git = "https://github.com/charles-r-earp/plaidml-rs" }
