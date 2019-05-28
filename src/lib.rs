@@ -3,12 +3,34 @@ use cpp::*;
 
 cpp!{{
   #include <plaidml/plaidml++.h>
+  using vertexai::ctx;
   using namespace vertexai::plaidml;
 }}
 
-//cpp_class!(pub unsafe struct Shape as "shape");
+cpp_class!(unsafe struct Ctx as "std::shared_ptr<ctx>");
 
-cpp_class!(pub unsafe struct BaseTensor as "std::unique_ptr<base_tensor>");
+impl  Ctx {
+  // note: Ctx::default() does not use std::make_shared
+  fn new() -> Self {
+    cpp!(unsafe [] -> Ctx as "std::shared_ptr<ctx>" {
+      return std::make_shared<ctx>();
+    })
+  }
+}
+
+cpp_class!(unsafe struct BaseShape as "base_shape");
+
+pub struct Shape<T> {
+  base_shape: BaseShape,
+  _marker: PhantomData<T>
+}
+
+/*impl<T> Shape<T> {
+  fn new<D>(dims: D) -> Self
+    where D: AsRef<[usize]> {
+    cpp!(unsafe [*/
+
+cpp_class!(unsafe struct BaseTensor as "std::unique_ptr<base_tensor>");
 
 pub struct Tensor<T> {
   base_tensor: BaseTensor,

@@ -7,10 +7,10 @@ env:
 install: 
   - "sudo apt update"
   - "sudo apt install -y python3 python3-pip"
-  - "sudo pip3 install --user virtualenv"
-  - "which pip | cat"
+  - "sudo -H pip3 install virtualenv"
   - "virtualenv plaidml"
   - "source plaidml/bin/activate"
+  - "which pip | cat"
   - "pip install plaidml"
   - "source ~/.cargo/env || true"
 language: rust
