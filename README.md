@@ -18,6 +18,7 @@ Install PlaidML via pip in a virtualenv called plaidml
 
 # Setup
 Choose which accelerator to use:
+
     plaidml-setup 
 
 # Cargo
