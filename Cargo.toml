@@ -1,5 +1,5 @@
 [package]
-name = "ngraph"
+name = "plaidml"
 version = "0.0.1"
 authors = ["Charles Earp <charles.r.earp@gmail.com>"]
 edition = "2018"

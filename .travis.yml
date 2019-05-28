@@ -7,7 +7,8 @@ env:
 install: 
   - "sudo apt update"
   - "sudo apt install -y python3 python3-pip"
-  - "sudo pip3 install virtualenv"
+  - "sudo pip3 install --user virtualenv"
+  - "which pip | cat"
   - "virtualenv plaidml"
   - "source plaidml/bin/activate"
   - "pip install plaidml"

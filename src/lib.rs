@@ -1,13 +1,19 @@
+use std::marker::PhantomData;
 use cpp::*;
 
 cpp!{{
-  #include <memory>
   #include <plaidml/plaidml++.h>
   using namespace vertexai::plaidml;
-  using std::unique_ptr;
 }}
 
-cpp_class!(pub unsafe struct Tensor as "unique_ptr<base_tensor>");
+//cpp_class!(pub unsafe struct Shape as "shape");
+
+cpp_class!(pub unsafe struct BaseTensor as "std::unique_ptr<base_tensor>");
+
+pub struct Tensor<T> {
+  base_tensor: BaseTensor,
+  _marker: PhantomData<T>
+}
 
 cpp_class!(pub unsafe struct Placeholder as "placeholder");
 
