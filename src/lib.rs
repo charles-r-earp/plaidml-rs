@@ -107,7 +107,7 @@ impl<T> Shape<T> {
     self
   } 
   #[inline]
-  pub fn dims<'c, D>(self, ctx: &'c Ctx, dims: D) -> Self
+  pub fn dims<'c, D>(ctx: &'c Ctx, dims: D) -> Self
     where T: Data, 
           D: AsRef<[usize]> {
     let mut s = Self::new(ctx);
