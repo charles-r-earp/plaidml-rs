@@ -5,12 +5,20 @@ env:
   global: 
     - CRATE_NAME=plaidml
 install: 
-  - "sudo ./ci/travis/install.sh"
+  - echo "$VIRTUAL_ENV"
+  - sudo apt update
+  - sudo apt install -y python3-pip
+  - sudo -H pip3 install virtualenv
+  - virtualenv plaidml
+  - source plaidml/bin/activate
+  - pip install plaidml
+  - source ~/.cargo/env || true
+  - export LD_LIBRARY_PATH="$VIRTUAL_ENV/lib"
 language: rust
 env: TARGET=x86_64-unknown-linux-gnu
 notifications: 
   email: 
     on_success: never
 script:
-  - "./ci/travis/script.sh"
+  - cargo run --examples test
 sudo: required
