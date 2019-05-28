@@ -26,3 +26,19 @@ Add the following to cargo.toml:
 
     [dependencies]
     plaidml = { git = "https://github.com/charles-r-earp/plaidml-rs" }
+
+## Usage
+
+# Unix Systems ie Linux, Mac
+Currently Cargo doesn't set rpath correctly so the environmental variable LD_LIBRARY_PATH  must be passed in, either when running plaidml-rs directly, or in a dependent crate.
+
+    $LD_LIBRARY_PATH='$VIRTUAL_ENV'/lib cargo run --example test
+    
+# Windows
+
+    $PATH='$VIRTUAL_ENV'/lib cargo run --example test
+    
+# Tested On
+- Ubuntu
+  - 16.04 LTS 'Xenial'
+  - 18.04 LTS 'Bionic Beaver'

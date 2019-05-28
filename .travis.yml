@@ -19,6 +19,6 @@ notifications:
     on_success: never
 script:
   - "echo '$VIRTUAL_ENV'"
-  - "cargo build"
-  - "cargo test"
+  - "cargo build --examples"
+  - "$LD_LIBRARY_PATH='VIRTUAL_ENV'/lib cargo run --example test"
 sudo: required

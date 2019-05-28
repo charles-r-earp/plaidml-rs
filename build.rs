@@ -8,6 +8,6 @@ fn main() {
   cpp_build::Config::new()
     .include(format!("{}/include", &virtual_env).as_str())
     .flag("-w")
-    .flag(&format!("-Wl, -rpath={}/lib", &virtual_env).as_str())
+    //.flag(&format!("-Wl, -rpath={}/lib", &virtual_env).as_str())
     .build("src/lib.rs");
 }
