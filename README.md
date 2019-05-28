@@ -1,3 +1,4 @@
+# plaidml-rs
 Rust bindings for PlaidML
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/charles-r-earp/plaidml-rs/LICENSE)
