@@ -24,4 +24,5 @@ Choose which accelerator to use:
 # Cargo
 Add the following to cargo.toml:
 
+    [dependencies]
     plaidml = { git = "https://github.com/charles-r-earp/plaidml-rs" }
