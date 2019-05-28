@@ -1,7 +1,8 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+use cpp::*;
+
+cpp!{{
+  #include <plaidml/plaidml++.h>
+  using namespace vertexai::plaidml;
+}}
+
+cpp_class!(pub unsafe struct Device as "device");
