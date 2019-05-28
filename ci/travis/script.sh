@@ -1,3 +1,4 @@
 #!/bin/bash
 cargo build --examples
-LD_LIBRARY_PATH="${VIRTUAL_ENV}"/lib carg run --examples test
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$VIRTUAL_ENV/lib
+cargo run --examples test

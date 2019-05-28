@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "${VIRTUAL_ENV}"
+echo $VIRTUAL_ENV
 sudo apt update
 sudo apt update
 sudo apt install -y python3 python3-pip

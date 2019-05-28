@@ -32,11 +32,15 @@ Add the following to cargo.toml:
 # Unix Systems ie Linux, Mac
 Currently Cargo doesn't set rpath correctly so the environmental variable LD_LIBRARY_PATH  must be passed in, either when running plaidml-rs directly, or in a dependent crate.
 
-    $LD_LIBRARY_PATH='$VIRTUAL_ENV'/lib cargo run --example test
+    LD_LIBRARY_PATH=$VIRTUAL_ENV/lib cargo run --example test
+    
+Alternatively, set add this to ~/.bashrc:
+
+    export $LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/plaidml/lib
     
 # Windows
 
-    $PATH='$VIRTUAL_ENV'/lib cargo run --example test
+    PATH=$VIRTUAL_ENV/lib cargo run --example test
     
 # Tested On
 - Ubuntu

@@ -5,12 +5,12 @@ env:
   global: 
     - CRATE_NAME=plaidml
 install: 
-  - "sudo sh ci/travis/install.sh"
+  - "sudo ./ci/travis/install.sh"
 language: rust
 env: TARGET=x86_64-unknown-linux-gnu
 notifications: 
   email: 
     on_success: never
 script:
-  - "sh ci/travis/script.sh"
+  - "./ci/travis/script.sh"
 sudo: required
