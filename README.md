@@ -5,6 +5,9 @@ Rust bindings for PlaidML
 
 [![Build Status](https://travis-ci.org/charles-r-earp/plaidml-rs.svg?branch=master)](https://travis-ci.org/charles-r-earp/plaidml-rs)
 
+## Status
+In construction, not in a useful state. See examples/test.rs 
+
 # Installing
 Install PlaidML via pip in a virtualenv called plaidml
 
